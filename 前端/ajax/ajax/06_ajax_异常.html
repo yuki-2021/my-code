@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异常处理</title>
+</head>
+<body>
+    <button id="exceptionBtn">等待5s</button>
+    <script !src="">
+        var exceptionBtn = document.querySelector("#exceptionBtn");
+        exceptionBtn.onclick = () => {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/time5");
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == XMLHttpRequest.DONE) {
+                    if(xhr.status == 200) {
+                        console.log(xhr.response)
+                    }
+                } else  {
+                    console.log("出现了错误")
+                }
+            }
+            xhr.onerror = (err) => {
+                console.log("出现了错误", err)
+            }
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

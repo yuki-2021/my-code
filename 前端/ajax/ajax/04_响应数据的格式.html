@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转换响应数据成JSON</title>
+</head>
+<body>
+    <button id="dataJson">响应数据的格式是JSON</button>
+
+    <script !src="">
+        // 请求头
+        var dataJsonEle = document.querySelector("#dataJson");
+        dataJsonEle.onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/json");
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if( xhr.status == 200) {
+                        // var user = JSON.parse(xhr.response);
+                        console.log(xhr.response, typeof xhr.response);
+                        // console.log(user);
+                    }
+                }
+            }
+            xhr.responseType = "json"
+            xhr.send();
+        }
+
+    </script>
+</body>
+</html>

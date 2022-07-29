@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax缓存</title>
+</head>
+<body>
+    <div id="result"></div>
+    <button id="ajaxCache">Ajax缓存</button>
+
+    <script !src="">
+        // 请求头
+        var ajaxCache = document.getElementById("ajaxCache");
+        var resultEle = document.getElementById("result");
+        ajaxCache.onclick = function () {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/cache");
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if( xhr.status >= 200 && xhr.status <300) {
+                        resultEle.innerText = xhr.response;
+                    }
+                }
+            }
+            xhr.send();
+        }
+
+    </script>
+</body>
+</html>
