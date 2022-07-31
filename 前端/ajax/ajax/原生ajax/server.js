@@ -41,7 +41,7 @@ app.all("/param-json", (req, res) => {
 app.all("/resp-head", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Access-Control-Allow-Headers", "*")
-    res.setHeader("Access-Control-Expose-Headers", "res,res1")
+    res.setHeader("Access-Control-Expose-Headers", "*")
     res.setHeader("res", "okok");
     res.setHeader("res1", "okok");
     res.send("res - okok");
