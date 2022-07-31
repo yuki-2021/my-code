@@ -59,8 +59,10 @@ app.all("/json", (req, resp) => {
 app.get("/cache", (req, resp) => {
     resp.setHeader("Access-Control-Allow-Origin", "*")
     resp.setHeader("Access-Control-Allow-Headers", "*")
-    resp.setHeader("Cache-Control", 'public, max-age=31536000')
+    // resp.setHeader("Cache-Control", 'public, max-age=31536000')
     // resp.setHeader("Cache-Control", "no-store")
+    console.log("aaa")
+
     resp.send("刘备阿达")
 })
 
