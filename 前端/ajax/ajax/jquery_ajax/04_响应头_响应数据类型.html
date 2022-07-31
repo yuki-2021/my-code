@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应头</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <button id="resHeader">响应头</button>
+    <button id="resDataTpe">响应数据类型</button>
+
+    <script !src="">
+        let baseUrl = "http://localhost:8000"
+        function successCallback(response, statusText, xhr) {
+            console.log(response)
+            console.log(statusText)
+            console.log(xhr)
+        }
+
+        $("#resHeader").click(function () {
+            // 响应头
+            $.ajax(baseUrl + "/resp-head", {
+                type: "GET",
+                success: (response, statusText, xhr) => {
+                    console.log(xhr.getAllResponseHeaders())
+                }
+            })
+        })
+
+        $("#resDataTpe").click(function () {
+            // 响应头
+            $.ajax(baseUrl + "/json", {
+                type: "GET",
+                success: (response, statusText, xhr) => {
+                    console.log(typeof response, response)
+                },
+                dataType: "text"
+            })
+        })
+    </script>
+</body>
+</html>

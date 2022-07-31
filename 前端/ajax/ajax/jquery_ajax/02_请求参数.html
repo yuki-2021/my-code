@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请求参数</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <button id="getParam">get参数</button>
+    <button id="postParam">post参数</button>
+    <button id="jsonParam">json参数</button>
+
+    <script !src="">
+        let baseUrl = "http://localhost:8000"
+        function successCallback(response, statusText, xhr) {
+            console.log(response)
+            console.log(statusText)
+            console.log(xhr)
+        }
+
+        $("#getParam").click(() => {
+            // 发送Ajax请求
+            $.ajax(baseUrl + "/param-get", {
+                type: "GET",
+                success: successCallback,
+                // 请求参数
+                data: {username: "admin", password: "123456"}
+            })
+        })
+
+        $("#postParam").click(() => {
+            // 发送Ajax请求
+            $.ajax(baseUrl + "/param-post", {
+                type: "POST",
+                success: successCallback,
+                // 请求参数
+                data: {username: "admin", password: "1234a56"}
+
+            })
+        })
+
+        $("#jsonParam").click(() => {
+            // 发送Ajax请求
+            $.ajax(baseUrl + "/param-json", {
+                type: "POST",
+                success: successCallback,
+                // 请求参数
+                data: JSON.stringify({user:"admin", password: "123456"}),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+        })
+    </script>
+</body>
+</html>

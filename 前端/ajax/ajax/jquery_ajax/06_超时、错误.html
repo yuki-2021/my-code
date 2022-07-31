@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超时、错误</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <button id="timeout">请求超时</button>
+    <button id="error">请求错误</button>
+
+    <script !src="">
+        let baseUrl = "http://localhost:8000"
+        function successCallback(response, statusText, xhr) {
+            console.log(response)
+            console.log(statusText)
+            console.log(xhr)
+        }
+
+        $("#timeout").click(function () {
+            $.ajax(baseUrl + "/time5",{
+                type: "GET",
+                timeout: 2000,
+                success: (response, statusText, xhr) => {
+                    console.log(response)
+                },
+                error: (xhr,statusText) => {
+                    console.log(xhr)
+                    console.log(statusText)
+                }
+            })
+        })
+
+        $("#error").click(function () {
+            $.ajax(baseUrl + "/time5",{
+                type: "GET",
+                success: (response, statusText, xhr) => {
+                    console.log(response)
+                },
+                error: (xhr,statusText) => {
+                    console.log(xhr)
+                    console.log(statusText)
+                }
+            })
+        })
+    </script>
+</body>
+</html>
