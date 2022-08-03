@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初始化promise</title>
+</head>
+<body>
+    <script !src="">
+
+
+        /*
+        * Promise
+        * - Promise用于封装异步任务
+        * - promise接受executor(resolve,reject)
+        *
+        * Promise的三种状态
+        *   - Pending       准备中
+        *   - Fullfilled    成功
+        *   - Rejected      失败
+        * */
+        let p = new Promise((resolve, reject) => {
+            console.log("executor回调")
+        });
+        console.log("主线程代码")
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catch函数</title>
+</head>
+<body>
+    <script !src="">
+
+        /*
+        * Catch
+        * - 指定失败回调
+        * - 失败穿透，不传递等于reason => throw reason;
+        *
+        * */
+        let p  = Promise.reject("ok");
+
+        p.then(
+            (value) => {
+                console.log("成功了1",value);
+            },
+            (reason) => {
+                console.log("失败了1",reason)
+            }
+        )
+
+        p.then(
+            (value) => {
+                console.log("成功了2",value);
+            },
+            (reason) => {
+                console.log("失败了2",reason)
+            }
+        )
+
+        p.catch((reason) => {
+            console.log("catch",reason)
+        })
+    </script>
+</body>
+</html>

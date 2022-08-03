@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同步和异步</title>
+</head>
+<body>
+    <script !src="">
+        /*
+        * 同步和异步
+        *
+        * - 同步代码，直接执行，压入执行栈
+        * - 异步代码，压入Callback Queue
+        *
+        * 常见同步异步
+        * - 同步
+        *   Array.forEach()
+        * - 异步
+        *   setTimeout()、ajax请求
+        * */
+        // 同步回调案例
+        let arr = [1,2,3,4,5,6];
+        arr.forEach(function (item) {
+            console.log(item)
+        });
+        console.log("输出了我");
+
+
+        /*
+        *   异步代码
+        * */
+        // 异步回调案例
+        setTimeout(() => {
+            console.log("2000")
+        },0)
+        console.log("输出了我")
+        console.log("输出了我")
+        console.log("输出了我")
+        console.log("输出了我")
+
+    </script>
+</body>
+</html>

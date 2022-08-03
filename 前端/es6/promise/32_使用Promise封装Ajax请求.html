@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise封装Ajax请求</title>
+</head>
+<body>
+    <script>
+        let method = "GET";
+        let url = "https://api.apiopen.top/api/sentences";
+
+        /*
+        * 回调地狱
+        * */
+        function sendAjaxCallback(method, url, success, err) {
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == xhr.DONE) {
+                    if(xhr.status == 200) {
+                        success(xhr)
+                    } else {
+                        err(xhr)
+                    }
+                }
+            }
+            xhr.send();
+        }
+        // 1. 第一次请求
+        sendAjaxCallback(method, url, (xhr) => {
+            console.log("第一次请求的数据", xhr.response)
+            // 2. 第二次请求
+            sendAjaxCallback(method, url, (xhr) => {
+                console.log("第二次请求的数据", xhr.response);
+                // 2. 第三次
+                sendAjaxCallback(method, url, (xhr) => {
+                    console.log("第三次请求的数据", xhr.response);
+                })
+            })
+        })
+
+
+        /*
+        *  1. 在Promise中封装异步任务
+        *  2. 在.then()中指定回调函数
+        * */
+        function sendAjax(method, url) {
+            return new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open(method, url);
+                xhr.onreadystatechange = () => {
+                    if(xhr.readyState == xhr.DONE) {
+                        if(xhr.status == 200) {
+                            resolve(xhr)
+                        } else {
+                            reject(xhr)
+                        }
+                    }
+                }
+                xhr.send();
+            });
+        }
+
+        // 1. 第一次请求
+        sendAjax(method, url)
+            .then((xhr) => {
+                console.log("第一次请求的数据", xhr.response)
+                return sendAjax(method, url)
+            })
+            .then((xhr) => {
+                console.log("第二次请求的数据", xhr.response)
+                return sendAjax(method, url)
+            })
+            .then((xhr) => {
+                console.log("第二次请求的数据", xhr.response)
+            })
+
+
+
+    </script>
+</body>
+</html>
