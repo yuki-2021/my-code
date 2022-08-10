@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用XmlHttpRequuest发生Ajax请求</title>
+    <style>
+        .result {
+            margin-bottom: 20px;
+            height: 100px;
+            background-color: tomato;
+            border: 5px solid #000;
+
+        }
+    </style>
+</head>
+<body>
+    <button id="sendGet">发生GET请求</button>
+    <button id="sendPost">发生POST请求</button>
+
+    <script !src="">
+        /*
+        *  0 - 没有初始化 - UNSET
+        *  1 - open完毕 - OPENED
+        *  2 - send()方法调用完毕 - HEADERS_RECEIVED
+        *  3 - 服务器返回部分结构(正在下载) - LOADINg
+        *  4 - 服务器返回所有结果 - DONE
+        * */
+        // 发送GET
+        var sendGetBtn = document.querySelector("#sendGet");
+        sendGetBtn.onclick = function () {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/server");
+            xhr.onreadystatechange = () => {
+                console.log(XMLHttpRequest.UNSENT)
+               if(xhr.readyState == XMLHttpRequest.DONE) {
+                   if(xhr.status == 200) {
+                       console.log(xhr.response)
+                   }
+               }
+            } ;
+            xhr.send();
+        }
+
+        // 发送Post
+        var sendGetBtn = document.querySelector("#sendGet");
+        sendGetBtn =  () => {
+            // 1. 创建xhr对象
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/server");
+
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if( xhr.status == 200) {
+                        console.log(xhr)
+                    } else  {
+                        console.log(xhr)
+                    }
+                }
+            }
+            xhr.send();
+        }
+
+        // 发送Post请求
+        var sendPostEle = document.querySelector("#sendPost");
+        sendPostEle.onclick = function () {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST","http://localhost:8000/server");
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if(xhr.status >= 200 && xhr.status <= 300) {
+                        console.log(xhr.response)
+                    }
+                }
+            }
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

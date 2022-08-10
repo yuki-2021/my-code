@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超时、错误</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <button id="onlyOne">只发一次</button>
+
+    <script !src="">
+        let baseUrl = "http://localhost:8000"
+
+        $("#onlyOne").click(function () {
+            // 取消上一次
+            if(this.lastXhr != undefined) {
+                console.log("正在发送，请稍等")
+            }
+            // 发请求
+            let xhr = $.ajax(baseUrl + "/time5",{
+                type: "GET",
+                success: (response, statusText, xhr) => {
+                    console.log(response)
+                    delete this.lastXhr;
+                },
+                error: (xhr,statusText) => {
+                    console.log(xhr)
+                    console.log(statusText)
+                    delete this.lastXhr;
+                }
+            })
+            // 保存
+            this.lastXhr = xhr;
+        })
+
+    </script>
+</body>
+</html>

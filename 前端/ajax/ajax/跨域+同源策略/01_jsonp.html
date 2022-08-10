@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jsonp</title>
+</head>
+<body>
+
+    <button id="jsonp">发送JsonP请求</button>
+    <script !src="">
+
+        function sendAjax(url, callback) {
+            const CALL_FUNC = 'CALL_FUNC';
+            // 1. 创建Script
+            var scriptEle = document.createElement("script");
+            scriptEle.src = url + `?callback=CALL_FUNC`;
+            // 2. 插入Script
+            document.body.appendChild(scriptEle);
+            // 4. 设置回调
+            window[CALL_FUNC] = function (response) {
+                callback(response)
+
+                // 5. 清楚script
+                document.body.removeChild(scriptEle);
+                delete window[CALL_FUNC];
+            }
+        }
+
+        var jsonpEle = document.querySelector("#jsonp");
+        jsonpEle.onclick = function () {
+            sendAjax("http://localhost:8000/jsonp", (response)=> {
+                console.log(response)
+            })
+        }
+    </script>
+</body>
+</html>

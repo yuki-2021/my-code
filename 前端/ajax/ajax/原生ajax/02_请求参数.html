@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请求参数</title>
+</head>
+<body>
+    <button id="sendGet">Get请求参数</button>
+    <button id="sendPost">POST请求参数</button>
+
+    <script !src="">
+        // 发生Get请求
+        var sendGetBtn = document.querySelector("#sendGet");
+        sendGetBtn.onclick = function () {
+            // 1. 创建xhr对象
+            var xhr = new XMLHttpRequest();
+            // 设置参数
+            xhr.open("GET", "http://localhost:8000/param-get?username=admin&password=1233456");
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if( xhr.status == 200) {
+                        console.log(xhr.response);
+                    }
+                }
+            }
+            xhr.send();
+        }
+
+        // 发送Post请求
+        var sendPostEle = document.querySelector("#sendPost");
+        sendPostEle.onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST","http://localhost:8000/param-json");
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if(xhr.status >= 200 && xhr.status <= 300) {
+                        console.log(xhr.response)
+                    }
+                }
+            }
+            // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+            // xhr.send("username=admin&password==123456")
+            xhr.setRequestHeader("Content-Type", "application/json")
+            xhr.send(JSON.stringify({username:'admin', password: 123456 })) // 传递JSON
+
+        }
+    </script>
+</body>
+</html>

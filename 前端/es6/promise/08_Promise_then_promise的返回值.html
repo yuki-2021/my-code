@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>then方法的返回值</title>
+</head>
+<body>
+    <script !src="">
+        /*
+        * then
+        * - 指定回调,压入CallbackQueue中
+        * - 返回值默认是Promise
+        * */
+        let p = Promise.resolve("ok");
+        let thenReturn =  p.then(
+                (value) => {console.log("成功了",value)},
+                (reason) => {console.log("成功了",reason)}
+            )
+
+
+        console.log(thenReturn) // Promise<Pending>
+
+       setTimeout(() => {
+           console.log(thenReturn)  // Promise<Pending>
+       },200)
+    </script>
+</body>
+</html>

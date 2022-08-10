@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catch穿透</title>
+</head>
+<body>
+    <script !src="">
+        /*
+        * Catch
+        *   - 指定失败回调
+        *   - then不指定失败回调，等于reason=> throw reason,会形成`失败穿透`
+        * */
+        let p  = Promise.reject("ok");
+        p.then(
+            (value) => {console.log("成功了1",value);}
+        )
+        .then(
+            (value) => {console.log("成功了1",value);}
+        )
+        .catch((reason) => {
+            console.log("catch",reason)
+        })
+    </script>
+</body>
+</html>

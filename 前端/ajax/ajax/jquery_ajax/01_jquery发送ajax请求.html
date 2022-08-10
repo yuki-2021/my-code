@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery发送Ajax请求</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <button id="ajax">ajax</button>
+    <button id="get">get</button>
+    <button id="post">post</button>
+
+    <script !src="">
+        $("#ajax").on("click",() => {
+            // 发送Ajax请求
+            $.ajax("http://localhost:8000/server", {
+                type: "GET", // 请求类型
+                success: (response,statusText,xhr) => {
+                    console.log(response)
+                    console.log(statusText)
+                    console.log(xhr.status)
+                    console.log(xhr)
+                },
+            })
+        })
+
+
+        $("#get").click(function () {
+            // url, data, callback, responseType
+            $.get("http://localhost:8000/server", (response, statusText, xhr) => {
+                console.log(response)
+                console.log(statusText)
+                console.log(xhr)
+            })
+        })
+
+        $("#post").click(function () {
+            // url, data, callback, responseType
+            $.post("http://localhost:8000/server", (response, statusText, xhr) => {
+                console.log(response)
+                console.log(statusText)
+                console.log(xhr)
+            })
+        })
+    </script>
+</body>
+</html>

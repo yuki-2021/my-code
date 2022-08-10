@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请求头</title>
+</head>
+<body>
+    <button id="sendHeader">请求头</button>
+
+    <script !src="">
+        // 请求头
+        var sendHeader = document.querySelector("#sendHeader");
+        sendHeader.onclick = function () {
+            // 1. 创建xhr对象
+            var xhr = new XMLHttpRequest();
+            // 设置参数
+            xhr.open("GET", "http://localhost:8000/server");
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if( xhr.status == 200) {
+                        console.log(xhr.response);
+                    }
+                }
+            }
+            // 设置Header
+            xhr.setRequestHeader("username", "admin");
+            xhr.setRequestHeader("password", "12456")
+            xhr.send()
+        }
+
+    </script>
+</body>
+</html>

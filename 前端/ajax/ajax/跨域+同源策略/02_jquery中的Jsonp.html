@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquer中的Jsonp</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+    <button id="jsonp1">发送Jsonp请求</button>
+    <button id="jsonp2">使用$.getJSON发送Jsonp请求</button>
+
+    <script !src="">
+        $("#jsonp1").click(function () {
+            // 发送Jsonp
+            $.ajax("http://localhost:8000/jsonp",{
+                type: "GET",
+                dataType: "jsonp",
+                jsonp: "callback", // 设置?callback=?
+                success: (resp) => {
+                    console.log(resp)
+                }
+            })
+        })
+
+        $("#jsonp2").click(function () {
+            // 发送Jsonp
+            $.getJSON("http://localhost:8000/jsonp?callback=?",function ok(resp) {
+                console.log(resp)
+            })
+        })
+    </script>
+</body>
+</html>

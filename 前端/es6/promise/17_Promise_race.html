@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise.race</title>
+</head>
+<body>
+    <script !src="">
+        var resolve1 = Promise.reject("1");
+        var resolve2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("okok1")
+                resolve(2)
+            }, 200)
+        })
+        var resolve3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("okok2")
+                resolve(2)
+            }, 500)
+        })
+
+        Promise.race([resolve1,resolve2,resolve3])
+        .then(
+            (value) => {console.log(value)},
+            (reason) => {console.log("Fail")}
+        )
+
+
+    </script>
+</body>
+</html>

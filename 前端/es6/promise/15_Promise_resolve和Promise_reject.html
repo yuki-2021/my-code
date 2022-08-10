@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise.resolve()和Promise.reject()</title>
+</head>
+<body>
+    <script !src="">
+
+        let pending = new Promise((resolve, reject) => {
+
+        })
+
+        var resolve = Promise.resolve(pending);
+        console.log(resolve)
+
+        let reject  = Promise.reject("ok")
+        console.log(reject)
+
+    </script>
+</body>
+</html>

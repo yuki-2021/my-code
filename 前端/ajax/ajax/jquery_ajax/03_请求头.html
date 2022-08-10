@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请求头</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <button id="sendHeader">请求头</button>
+    <script !src="">
+        let baseUrl = "http://localhost:8000"
+        function successCallback(response, statusText, xhr) {
+            console.log(response)
+            console.log(statusText)
+            console.log(xhr)
+        }
+        $("#sendHeader").click(() => {
+
+            // 请求头
+            $.ajax(baseUrl+ "/server", {
+                type: "GET",
+                headers: {
+                    "username": "admin",
+                    "password": "123456"
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

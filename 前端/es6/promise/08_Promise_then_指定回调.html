@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用then指定回调</title>
+</head>
+<body>
+    <script>
+        /*
+        * then
+        *   - 指定回调函数，压入CallbackQueue中
+        *   - 返回Promise对象
+        * */
+        let p = new Promise((resolve, reject) => {
+            if(Date.now() % 2) {
+                resolve("时间是偶数")
+            } else {
+                reject("时间是奇数")
+            }
+        });
+
+
+        p.then(
+            (value) => {console.log("成功了",value)},
+            (reason) => {console.log("失败了",reason)},
+        )
+        console.log("主线程代码")
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>只发一次请求</title>
+</head>
+<body>
+    <button id="sendOnly">我只发一次请求,你看好了</button>
+    <script !src="">
+
+        /*
+        * xhr
+        * */
+        var sendOnly = document.querySelector("#sendOnly");
+        sendOnly.onclick = () => {
+            // 取消上一次的请求
+            sendOnly.lastXhr && sendOnly.lastXhr.abort();
+            // 发送请求 + 保存xhr
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/time5");
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == XMLHttpRequest.DONE) {
+                    if(xhr.status == 200) {
+                        console.log(xhr.response)
+                    }
+                }
+            }
+            xhr.send();
+            sendOnly.lastXhr = xhr;
+        }
+    </script>
+</body>
+</html>

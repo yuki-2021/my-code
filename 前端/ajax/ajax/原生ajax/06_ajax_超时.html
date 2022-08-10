@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请求超时</title>
+</head>
+<body>
+    <button id="timeoutBtn">等待5s</button>
+    <script !src="">
+        var timeOutBtn = document.querySelector("#timeoutBtn");
+        timeOutBtn.onclick = () => {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/time5");
+            xhr.timeout = 3000;
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == XMLHttpRequest.DONE) {
+                    if(xhr.status == 200) {
+                        console.log(xhr.response)
+                    }
+                } else  {
+                    console.log("出现了错误")
+                }
+            }
+            xhr.ontimeout = (err) => {
+                console.log(err)
+            }
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

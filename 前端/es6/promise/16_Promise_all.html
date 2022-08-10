@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise.all()</title>
+</head>
+<body>
+    <script !src="">
+        /*
+        * Promise.all()
+        * - 有一个失败，直接进入失败回调
+        *
+        * */
+        var resolve1 = Promise.reject("1");
+        var resolve2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("okok1") // 2
+                resolve(2)
+            }, 200)
+        })
+        var resolve3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("okok2")  // 3
+                resolve(2)
+            }, 500)
+        })
+        console.log("adad") // 1
+
+
+        Promise.all([resolve1,resolve2,resolve3])
+            .then(
+                (value) => {
+                    console.log("成功了",value) // 4
+                },
+                (reason) => {
+                    console.log("失败了",reason)}
+            );
+
+    </script>
+</body>
+</html>

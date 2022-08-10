@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应头</title>
+</head>
+<body>
+    <button id="resHead">响应头</button>
+
+    <script !src="">
+        // 请求头
+        var resHeadEle = document.querySelector("#resHead");
+        resHeadEle.onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8000/resp-head");
+            xhr.responseType = "json"
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4) {
+                    if( xhr.status == 200) {
+                        var allheader = xhr.getAllResponseHeaders();
+                        console.log(typeof allheader, allheader) // string
+                        var res1 = xhr.getResponseHeader("res1");
+                        var res = xhr.getResponseHeader("res");
+                        console.log(res,res1)
+                    }
+                }
+            }
+            xhr.send();
+        }
+
+    </script>
+</body>
+</html>
