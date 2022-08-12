@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello-React</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script !src="">
+
+        const title =React.createElement("h1", {'key': 'title'},'hello-world');
+        const template =React.createElement('div',{'key': 'article'}, [title,'你好世界']);
+        /*
+        *  创建虚拟DOM的两种方式
+        *
+        *   1. 使用`babel把jsx语法转换成虚拟DOM`
+        *   2. 使用React.createElement()创建
+        * */
+        const vm =  ReactDOM.createRoot(document.querySelector("#root"));
+        vm.render(template)
+
+    </script>
+</body>
+</html>

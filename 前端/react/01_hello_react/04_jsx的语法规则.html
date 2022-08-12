@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsx的语法规则</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script !src="" type="text/babel">
+
+    /*
+    * Jsx的语法规则
+    *
+    * 1. 创建虚拟dom，直接写html标签。 babel会自动转换成虚拟Dom
+    * 2. 使用js变量，使用{}
+    * */
+    const titleStyle = {
+        color: 'red',
+        textDecoration: 'underline'
+    }
+    const data  = {
+        title: '终南别业aaa',
+        author: '王维',
+        articles: ['行到水穷处','坐看云起时']
+    };
+    const template = (
+        <div>
+            <h1 className={data.title} style={titleStyle}>{data.title}</h1>
+            <hr/>
+            <div>
+                {
+                    data.articles.map((item,index) => {
+                        return <p key={index}>{item}</p>
+                    })
+                }
+            </div>
+        </div>
+    );
+
+    const vm =  ReactDOM.createRoot(document.querySelector("#root"));
+    vm.render(
+        template
+    )
+
+    console.log(template, typeof template)
+    console.log(vm, typeof vm)
+
+</script>
+</body>
+</html>
