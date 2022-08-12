@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数式组件</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Weather() {
+            console.log(this)
+            return <p>今天天气真不错 !!!</p>
+        }
+
+        var vm = ReactDOM.createRoot(document.querySelector("#root"));
+        vm.render(<Weather />)
+    </script>
+</body>
+</html>

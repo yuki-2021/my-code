@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件传参</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script !src="" type="text/babel">
+        class Person extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <p>{this.props.name}</p>
+                        <p>{this.props.age + 1}</p>
+                        <p>{this.props.gender}</p>
+                    </div>
+                )
+            }
+        }
+
+        let obj = {name: 'red2222', age: 50, gender: '男'}
+        var vm = ReactDOM.createRoot(document.querySelector("#root"));
+        // 传递参数
+        // vm.render(<Person name={obj.name} age={obj.age} gender={obj.gender}/>)
+        // 批量传递参
+        vm.render(<Person {...obj}/>)
+    </script>
+</body>
+</html>

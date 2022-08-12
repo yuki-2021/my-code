@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>state_数据</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+<body>
+
+
+    <div id="root"></div>
+    <script !src="" type="text/babel">
+
+        /*
+        * state
+        *   1. state表示数据，类似Vue中的data
+        *   2. setState({key,value})用于更新state
+        *   3. state是挂载在实例对象上的
+        *
+        * 事件处理中访问this
+        *   1. 使用that保存this
+        *   2. 使用闭包(闭包函数可以访问this) + callback传参的形式  |  闭包 + callback.call的形式  | 闭包+ bind的形式
+        *   3. 使用 箭头函数
+        *   4. 使用 bind
+        *
+        * */
+        class Weather extends React.Component {
+            render() {
+                return (
+                    <div>
+                        今天天气很 { this.state. isHot? '炎热': '凉爽'}
+                        <button onClick={this.handleEvent(this.handleChange)}>切换</button>
+                    </div>
+                )
+            }
+            state = {
+                isHot: true
+            }
+            // 回调
+            handleEvent = function (callback) {
+                return callback.bind(this)
+            }.bind(this)
+
+
+            handleChange() {
+                console.log(this)
+                this.setState({isHot: !this.state.isHot})
+            }
+        }
+
+        var vm = ReactDOM.createRoot(document.querySelector('#root'));
+        vm.render(<Weather />);
+
+
+
+    </script>
+</body>
+</html>
