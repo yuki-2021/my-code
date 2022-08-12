@@ -7,8 +7,8 @@ export default class Task extends Component{
         return (
             <li>
                 <label>
-                    <input type="checkbox"/>
-                    <span>xxxxx</span>
+                    <input type="checkbox" defaultChecked={this.props.done}/>
+                    <span>{this.props.name}</span>
                 </label>
             </li>
         );
