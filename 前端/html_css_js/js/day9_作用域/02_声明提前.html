@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明提前</title>
+</head>
+<body>
+    <script>
+        console.log(func1)
+        console.log(func2)
+
+        function func1() {
+            console.log("func")
+        }
+
+        var func2 = function () {
+            console.log("func")
+        }
+    </script>
+
+</body>
+</html>

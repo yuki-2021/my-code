@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工厂方法</title>
+</head>
+<body>
+    <script>
+        /*
+        * 大量重复代码
+        * */
+        var student1 = {
+            name: "a1"
+        }
+        var student2 = {
+            name: "a1"
+        }
+        var student3 = {
+            name: "a1"
+        }
+
+        /*
+        * 提取出工厂方法
+        * */
+        function studentFactory(name) {
+            /*
+                let res = new Object();
+                res.name = name;
+                res.sayName = function () {
+                    console.log(this.name)
+                }
+                return res;
+            * */
+            return {
+                name: name,
+                sayName: function () {
+                    console.log(this.name)
+                }
+            }
+        }
+
+
+
+        var stu = studentFactory("a1");
+        console.log(stu)
+
+        function Dog() {}
+        console.log(new Dog())
+
+    </script>
+</body>
+</html>
