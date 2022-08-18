@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取Dom</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script !src="" type="text/babel">
+        class ShowMsg extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <input ref="username" type="text"/>
+                        <button onClick={this.showMsg.bind(this)}>显示信息</button>
+                    </div>
+                );
+            }
+            // 回调函数
+            showMsg() {
+                console.log(this.refs.username.value) //获取到dom的value
+            }
+        }
+
+        var vm = ReactDOM.createRoot(document.querySelector("#root"));
+        vm.render(<ShowMsg/>)
+    </script>
+</body>
+</html>

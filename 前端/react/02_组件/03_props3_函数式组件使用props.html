@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数式组件使用Props</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/prop-types.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script !src="" type="text/babel">
+        function Person(props) {
+            return (
+                <div>
+                    <p>{props.name}</p>
+                    <p>{props.age + 1}</p>
+                    <p>{props.gender}</p>
+                    <p>{props.score}</p>
+                </div>
+            )
+        }
+        Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            age: PropTypes.number,
+            gender: PropTypes.string
+        }
+        Person.defaultProps = {
+            score: 60
+        }
+        
+
+
+
+        let obj = {name: 'red2222',age: '50', gender: '男'}
+        var vm = ReactDOM.createRoot(document.querySelector("#root"));
+        // 传递参数
+        // vm.render(<Person name={obj.name} age={obj.age} gender={obj.gender}/>)
+        // 批量传递参
+        vm.render(<Person {...obj}/>)
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * 在Js中，作用域分为
+        *   - 全局作用域 => 直接卸载script中的Js代码
+        *                  - 全局变量都会作为window的属性保存。window在页面打开时候创建，页面关闭的时候被销毁。
+        *                  - 全局函数，作为window的方法
+        *                   - 不写var也可以，但是使用var会有变量声明提前。
+        *
+        *   - 局部作用域
+        *
+        * */
+
+        /*
+            console.log(a)
+            console.log(b)
+
+            var a = 1;
+            b= 1;
+        * */
+        var a = 10;
+
+        function func() {
+            var a = 20;
+            console.log(a)
+            console.log(a)
+        }
+
+        func()
+
+        var obj = {
+            a:12,
+            objFunc: function () {
+                console.log(a)
+                console.log(this.a)
+            }
+        }
+
+        console.log(obj.objFunc())
+        func1();
+     </script>
+</body>
+</html>

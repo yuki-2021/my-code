@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型 - Prototype</title>
+</head>
+<body>
+    <script>
+
+        /*
+        * 函数的prototype - Function
+            {constructor: ƒ}
+                constructor: ƒ Cat()
+                [[Prototype]]: Object
+        *
+        * */
+
+        /*
+        * 原型对象原型
+        * */
+        function Cat(name) {
+            this.name = name;
+        }
+        var cat = new Cat();
+        console.log(cat)
+
+        console.log("cat.__proto__ == Cat.prototype",cat.__proto__ == Cat.prototype) // true
+        console.log("cat.__proto__.__proto__ == Object.prototype",cat.__proto__.__proto__ == Object.prototype) // true
+
+
+        /*
+        * 设计时候，可以把方法放置在prototype上
+        * */
+        Cat.prototype.getName = function() {
+            return this.name;
+        }
+        Cat.prototype.count = 1024;
+        console.log(new Cat("旺财").getName())
+        console.log(new Cat("旺财").count)
+
+
+
+        /*
+        * hasOwnProperty()
+        * */
+        console.log("getName in cat", "getName" in cat);
+        console.log("hasOwnProperty('getName')", cat.hasOwnProperty("getName"));
+    </script>
+</body>
+</html>

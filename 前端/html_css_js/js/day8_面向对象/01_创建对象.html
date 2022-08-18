@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var obj = new Object();
+        obj.name = "red222";
+        obj.gender = "男";
+        obj.age = 12;
+
+        var teacher = new Object();
+        teacher.name = "perter"
+        obj.teacher = teacher;
+
+        /*
+            ------------------
+            Object
+                [[Prototype]]: Object
+
+            ------------------
+            {name: 'red222', gender: '男', age: 12}
+                age: 12
+                gender: "男"
+                name: "red222"
+                [[Prototype]]: Object
+
+            ------------------
+            {name: 'red222', gender: '男', age: 12, teacher: {…}}
+                age: 12
+                gender: "男"
+                teacher:
+                    name: "perter"
+                    [[Prototype]]: Object
+                [[Prototype]]: Object
+        * */
+        console.log(obj)
+
+        // 删除属性
+        delete obj.name;
+        console.log(obj)
+
+        // in - 查看是否有属性
+        console.log("name" in obj)
+
+        // in - 查看是否有属性
+        console.log("gender in obj -", "gender" in obj)
+
+        console.log("hasOwnProperty(gender) - ",obj.hasOwnProperty("gender"))
+
+        // 基本数据类型 、引用数据类型
+        var str1 = "ok";
+        var str2 = str1;
+        str1 = "cc";
+        console.log(str1, str2)
+
+        //
+        for (let item in obj) {
+            console.log(item)
+        }
+    </script>
+</body>
+</html>

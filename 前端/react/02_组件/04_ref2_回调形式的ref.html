@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调形式的ref</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+<body>
+
+    <div id="root"></div>
+    <script !src="" type="text/babel">
+        /*
+        * 1. 回调形式的ref，会在创建组件的时候执行一次。并且把dom传入
+        * */
+        class ShowMsg extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <input ref={this.setRef} id="username" type="text"/>
+                        <button onClick={this.showMsg.bind(this)}>显示信息</button>
+                    </div>
+                );
+            }
+            // 回调ref
+            setRef = (element) => {
+                this.myRefs = this.myRefs == undefined ? new Map() : this.myRefs;
+                this.myRefs.set(element.id, element)
+            }
+            // 回调函数
+            showMsg() {
+                console.log(this.myRefs.get("username").value)
+            }
+
+        }
+
+        var vm = ReactDOM.createRoot(document.querySelector("#root"));
+        vm.render(<ShowMsg/>)
+    </script>
+</body>
+</html>

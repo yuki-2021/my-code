@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+</head>
+<body>
+    <script>
+        function sayName() {
+            console.log(this.name)
+        }
+
+        var student1 = {
+            name: "a1",
+            sayName: sayName
+        }
+        var student2 = {
+            name: "b2",
+            sayName: sayName
+        }
+
+        sayName(); // ""
+        student1.sayName(); // "a1"
+        student2.sayName(); // "b2"
+
+    </script>
+</body>
+</html>

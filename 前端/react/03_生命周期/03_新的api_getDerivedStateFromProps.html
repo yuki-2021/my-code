@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getDerivedStateFromProps</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <style>
+        .red {background-color: pink;}
+        .weather {border: 5px solid orange;background-color: #bfa;}
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script !src="" type="text/babel">
+        class Weather extends React.Component {
+            render() {
+                return (
+                    <div className="weather">
+                        <div className="red">
+                            <Demo {...this.state} />
+                        </div>
+                        <button onClick={this.changeWeather}>显示天气</button>
+                    </div>
+                )
+            }
+            // 回调函数
+            changeWeather = () => {
+                this.setState({isHot: !this.state.isHot})
+            }
+            state = {
+                isHot: true,
+                score: '666'
+            }
+        }
+
+        class Demo extends React.Component {
+            //  //
+            render() {
+                return (
+                    <div>
+                        组件生命周期 - {this.state.count}
+                        -
+                        <button onClick={this.handleClick}>加1</button>
+                        <button onClick={this.force}>强制更新</button>
+                        -
+                        {this.props.isHot ? "炎热": "寒冷"}
+                        <hr/>
+                    </div>
+                );
+            }
+            // 生命周期回调
+            handleClick = () => {
+               this.setState({count: this.state.count+1 })
+            }
+            force = () => {
+                this.forceUpdate()
+            }
+
+            state = {
+                count: 1,
+
+            }
+            // 生命周期函数
+            /*componentWillMount() {
+                console.log("componentWillMount")
+            }*/
+            // 挂载之后
+            componentDidMount() {
+                console.log("componentDidMount")
+            }
+            // getDerivedStateFromProps
+            static getDerivedStateFromProps(nextProps,nextContext) {
+                console.log("getDerivedStateFromProps")
+                console.log(nextProps, nextContext)
+                return nextProps;
+            }
+            // ComponentWillReceiveProps
+         /*   componentWillReceiveProps(nextProps, nextContext) {
+                console.log("ComponentWillReceiveProps")
+            }*/
+            // 组件是否应该更新
+            shouldComponentUpdate(nextProps, nextState, nextContext) {
+                console.log("shouldComponentUpdate")
+                return nextContext;
+            }
+            // 组件更新之前
+            /*componentWillUpdate(nextProps, nextState, nextContext) {
+                console.log("componentWillUpdate")
+            }*/
+            // 组件更新之后
+            componentDidUpdate(prevProps, prevState, snapshot) {
+                console.log("componentDidUpdate")
+            }
+        }
+
+            var vm = ReactDOM.createRoot(document.querySelector("#root"));
+        vm.render(<Weather />)
+    </script>
+</body>
+</html>

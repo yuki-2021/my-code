@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script !src="">
+        var num = 3;
+        var numStr;
+
+
+        switch (num) {
+            case 1:
+                numStr = "one";break;
+            case 2:
+                numStr = "two";break;
+            case 3:
+                numStr = "three";break;
+            case 4:
+                numStr = "four";break;
+            default:
+                numStr = "其他";
+        }
+
+        console.log(num, numStr)
+
+        //
+        var money = 20;
+        var rate = 1.2;
+
+        var year = 0;
+        while (true) {
+            money  = money * rate;
+            year ++;
+
+            if(money >= 200) {
+                break;
+            }
+        }
+        console.log(money, year)
+
+        var numArr  = new Array("a","b","c","d","e","f","g");
+        for (let item in numArr) {
+            console.log(item)
+        }
+    </script>
+</body>
+</html>

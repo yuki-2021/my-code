@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+    <script>
+
+        /*
+        * 定义函数 两种方式
+        * - new Function()
+        * - function() {}
+        * */
+        var logFunc = new Function("console.log('hello-world')");
+        /*
+            ƒ anonymous() {
+                console.log('this is my function')
+            }
+        * */
+        console.log(logFunc) // 打印函数
+        logFunc(); // 调用函数
+
+        console.log("-----------------------------------------------------")
+
+        var addFunc = new Function("x", "y", "return x + y");
+        addFunc.name = "add";
+        /*
+           ƒ anonymous(x,y) {
+                return x + y
+            }
+        * */
+        console.log(addFunc) // 打印函数
+        addFunc(); // 调用函数
+
+        console.log("-----------------------------------------------------")
+
+        /*
+        * 函数参数
+        * - 可以使用arguments[xx]来调用
+        * */
+        function add(a,b) {
+            console.log(a, b,arguments[2],arguments.length,arguments.callee)
+            console.log("add函数");
+        }
+        console.log(add)
+        add(1,2,2,3,4)
+
+        console.log("-----------------------------------------------------");
+
+        var aymousFunc = function () {
+            console.log(arguments.callee.name)
+        }
+        aymousFunc()
+
+        console.log("-----------------------------------------------------");
+
+        /*
+        * () => {} 中的this是当前作用域对象
+        * apply() / call() - 对于（）=》 {} 不起作用
+        * */
+        var sayName2 =  () => {
+            console.log(this.name)
+        }
+        var sayName =  function (){
+            console.log(this.name)
+        }
+        var obj = {
+            name: "red222",
+            sayName: sayName
+        }
+        sayName.apply(obj)
+
+        // 调用
+        func();
+        func.call();
+
+        // 定义函数
+
+
+        console.log(add(1))
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

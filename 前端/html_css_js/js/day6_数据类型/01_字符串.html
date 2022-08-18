@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串</title>
+</head>
+<body>
+
+    <script>
+        /*
+        * 字符串
+        *
+        * */
+
+        var str = "hello";
+        console.log(str);
+
+        var str1 = 'hello';
+        console.log(str1);
+
+        console.log("aa \n aa")
+        console.log("aa \t aa")
+
+
+        /*
+        * 数字
+        * - 最大值、最小值、Infinity
+        * */
+        var v1 = "123";
+        var v2 = 123;
+        console.log("v1 == v2",v1 == v2)
+
+        console.log(Number.MAX_VALUE)
+        console.log(Number.MAX_SAFE_INTEGER)
+        console.log(Number.MAX_VALUE + Number.MAX_VALUE)
+        console.log(Number.MAX_VALUE + "aaa")
+
+
+        var maxValue = Number.MIN_VALUE + Number.MIN_VALUE;
+        console.log(maxValue)
+
+        console.log(100* "abc")
+        var nan = NaN;
+        console.log(typeof NaN)
+
+
+        /*
+        * 小数运算会导致精度误差
+        * */
+        var num1 = 0.1;
+        var num2 = 0.2;
+        var err = num1 + num2;
+        console.log(err)
+
+    </script>
+
+</body>
+</html>
