@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * 转换成String
+        * - xx.toString()
+        * - String()
+        * */
+        var num = 123;
+        var numStr = num.toString();
+        console.log("num", typeof num, "numStr", typeof numStr)
+
+        var numStr1 = String(num);
+        console.log("num", typeof num, "numStr1", typeof numStr1)
+
+
+
+        var undefinedVar = undefined;
+        var nullVar = null;
+        var undefinedStr = String(undefinedStr);
+        var nullStr = String(nullVar);
+        console.log("undefinedVar", typeof undefinedVar, "undefinedStr", typeof undefinedStr)
+        console.log("nullVar", typeof nullVar, "nullStr", typeof nullStr)
+
+        console.log("-------------------------------")
+
+        /*
+        * 转换成Number
+        *
+        * */
+        var boolVar = "123.23ok123";
+        var boolNum = Number.parseInt(boolVar);
+        console.log(boolNum)
+
+        var boolNum =  Number(boolVar)
+        console.log(boolNum)
+
+        // null 或者undefined转换成String
+        // var nullVar = null;
+        // var nullStr = nullVar.toString();
+        // console.log(nullStr)
+
+        // 转换成String
+        var bool = true;
+        var boolStr = bool.toString();
+        console.log(typeof  boolStr)
+
+
+        //  String()方式
+        var numStr1 = String(num);
+        console.log(typeof  numStr1)
+
+        // null的转换
+        var nullStr = String(null);
+        var undefinedStr = String(undefined);
+        console.log(nullStr)
+        console.log(undefinedStr)
+
+        // --------------------------
+        var numStr = "12aa3a";
+        var num =  Number.parseFloat(numStr);
+        console.log(num, typeof num);
+
+        // null值渣u那哈u呢
+        var nullVar = null;
+        var nullNUm = Number(nullVar);
+        console.log(nullNUm, typeof  nullNUm)
+
+        // Number()
+        var numStr = "123abc";
+        var num = Number(numStr);
+        console.log(num, typeof num) // NaN, "number"
+
+        // =====================
+        //
+        var abcBool = Boolean("-1abc");
+        var nullBool = Boolean(null);
+        var undefinedBool = Boolean(null);
+        var fuyiBool = Boolean(-1);
+        var zeroBool = Boolean(0);
+        var nanBool = Boolean(NaN);
+        var infinityBool = Boolean(Infinity);
+        console.log(abcBool); // true
+        console.log(nullBool); // false
+        console.log(undefinedBool); // false
+        console.log(fuyiBool); // true
+        console.log(zeroBool); // false
+        console.log(nanBool); // false
+        console.log(infinityBool); // true
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型</title>
+</head>
+<body>
+    <script>
+
+        /*
+        * 检查数据类型的方式
+        *
+        * - typeOf
+        * - instanceOf
+        * */
+        var a = "12";
+        console.log(typeof a) ;
+
+        let obj1 = {};
+        console.log(typeof  obj1)
+
+        let obj2 = new Object();
+        console.log(typeof  obj2)
+
+        console.log(obj2 instanceof Object)
+
+
+
+
+    </script>
+
+    <script>
+        /*
+        * 变量名称
+        *
+        * var
+        * - 声明在醉眠，默认挂在到window上。声明在函数中，是局部的。
+        * - 有变量提升
+        *
+        * 直接声明
+        * - 默认是挂在到windows上。生名在函数中，是全局的。
+        * - 无变量提升
+        *
+        * */
+        var a = 12;
+        console.log(window.a)
+
+        function func() {
+           var b = 12;
+        }
+        func();
+        console.log(window.b)
+
+        console.log(c)
+        c = 12;
+    </script>
+</body>
+</html>
