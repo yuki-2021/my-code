@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String - 字符串</title>
+</head>
+<body>
+    <script>
+        var str = "hello-world";
+        var str1 = "hello-world";
+
+        // 1. 基本 - length、charAt()
+        let length = str.length;
+        console.log(length); // 11
+
+        let charAtPos1 = str.charAt(1);
+        console.log(charAtPos1); // e
+
+        // 2. 是否包含 - indexOf() / startWith()
+        let firstIdx = str.indexOf("l");
+        console.log(firstIdx)
+
+        // 4Curd -concat()、slice()、
+        let concatStr = str.concat("aaa");
+        let sliceStr = str.slice(0,5);
+        let replaceStr = str.replaceAll("e",function(value, idx)  {
+            return value.toUpperCase()
+        });
+        let regExpMatchArrays = str.matchAll("l");
+        for (const regExpMatchArray of regExpMatchArrays) {
+            console.log(regExpMatchArray)
+        }
+        console.log(regExpMatchArrays)
+        console.log(concatStr, sliceStr,replaceStr, str)
+
+
+    </script>
+</body>
+</html>

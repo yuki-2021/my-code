@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date对象</title>
+</head>
+<body>
+    <script>
+
+
+        /*
+        * 创建Date对象
+        * */
+        var date1 = new Date("2022-06-07T22:22:22+08:00");
+        console.log(date1, date1.toString())
+
+
+
+        /*
+        * 获取时间戳
+        * */
+        console.log(new Date().getTime())
+        console.log(Date.now())
+
+        /*
+        * 各种格式
+        * */
+        var date2 = new Date();
+        console.log(date2.toUTCString()) // Tue, 02 Feb 2016 03:30:00 GMT
+        console.log(date2.toISOString()) //2016-02-02T03:30:00.000Z
+        console.log(date2.toLocaleString()) //2016-02-02T03:30:00.000Z
+
+
+        /*
+        * parse()
+        * */
+        var parse = Date.parse("Tue, 02 Feb 2016");
+        console.log(new Date(parse).toISOString());
+
+    </script>
+</body>
+</html>

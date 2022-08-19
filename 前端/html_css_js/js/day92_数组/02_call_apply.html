@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Call 和 Apply</title>
+</head>
+<body>
+    <script>
+
+        console.log(Function)
+
+        function sayHello() {
+            console.log(this.name);
+        }
+
+        var obj = {
+            name: "red2222",
+            sayHello: sayHello
+        }
+
+        sayHello.call(obj)
+
+        console.log(Function.prototype)
+
+    </script>
+</body>
+</html>

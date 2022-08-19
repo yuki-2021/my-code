@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regexp</title>
+</head>
+<body>
+    <script>
+
+        var regexp = /[^a-z]/;
+
+        var str = "hello-world";
+        console.log(regexp.test(str)) // true，因为-不是a-z
+
+
+        let matchArr1 = str.match(/l/i);
+        let matchArr2 = str.match(/l/ig);
+        console.log(matchArr1)
+        console.log(matchArr2)
+
+        var phoneRegexp = /^1[^0-2][0-9]{9}$/;
+
+        let isPhone = phoneRegexp.test("18265298296");
+        console.log(isPhone)
+
+
+
+    </script>
+</body>
+</html>
