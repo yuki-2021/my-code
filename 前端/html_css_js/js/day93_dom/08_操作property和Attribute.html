@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property和Attribute</title>
+</head>
+<body>
+    <input type="checkbox" name="hobby" id="">爱好
+    <script !src="">
+        /*
+        * Property和Attribute
+        *
+        * - 内置的属性是Property
+        * - 写在标签上的property和attribute会放在attributes中
+        * */
+        var inputEle = document.querySelector("input");
+        inputEle.checked = true;
+
+
+        /*
+         * 自定义属性
+        * */
+        var attrs = inputEle.attributes;
+        for (const attr of attrs) {
+            if(attr.localName == 'name') {
+                attr.nodeValue = 'hobby1'
+            }
+        }
+        inputEle.setAttribute("aa", "aaa");
+
+        console.log(inputEle)
+        console.log(document.querySelector("input"))
+    </script>
+</body>
+</html>

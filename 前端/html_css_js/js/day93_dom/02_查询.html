@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询 - Query</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+    <div id="myDiv">
+        我是div
+        <span id="mySpan">我是span</span>
+        <span>我是span</span>
+    </div>
+
+    <script !src="">
+        var divEle = document.querySelector("#myDiv");
+
+
+        console.log(divEle.childNodes)
+        console.log(divEle.children)
+
+
+        /*
+        * 兄弟节点
+        * */
+        var spanEle = document.getElementById("mySpan");
+        console.log(spanEle.previousSibling) //
+        console.log(spanEle.nextElementSibling) //
+        console.log(spanEle.parentNode) //
+
+        /*
+        * 测试nodeValue和innerText的区别
+        * */
+        var myDivEle = document.getElementById("myDiv");
+        console.log(myDivEle.innerHTML)
+        console.log(myDivEle.innerText)
+        console.log(myDivEle.nodeValue) // 对于Element和Document来说，nodeValue是null
+        console.log(myDivEle.textContent) // 文字内容(对于text节点和Element节点，这个熟悉通用)
+
+        /*
+        * document
+        * - all
+        * - scirpts
+        * - links
+        * */
+        console.log(document.doctype)
+        console.log(document.documentElement)
+        console.log(document.head)
+        console.log(document.body)
+
+
+        console.log("==--------")
+        console.log(document.firstChild)
+        console.log(document.firstElementChild)
+
+
+
+
+
+    </script>
+</body>
+</html>

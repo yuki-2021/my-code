@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作Css</title>
+    <style>
+        #myDiv {
+            width: 500px;
+            height: 500px;
+            border: 5px solid orange;
+        }
+        .red {
+            color: red;
+        }
+        .bold {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" >
+        这是Div
+        <span>这是Span</span>
+    </div>
+
+    <input type="checkbox" value="swim" checked="true" sdc="ok">
+
+    <script !src="">
+        var myDivEle = document.querySelector("#myDiv");
+        myDivEle.style.backgroundColor = "#bfa";
+
+        /*
+        * 获取当前的Style
+        * */
+        console.log(getComputedStyle(myDivEle).width)
+
+        /*
+        * 内容操作
+        * */
+        console.log(myDivEle.textContent)
+
+        /*
+        * class操作
+        * */
+        myDivEle.classList.remove("blue")
+        myDivEle.classList.add("red")
+        myDivEle.classList.add("bold")
+
+
+        console.log(myDivEle.className)
+
+        /*
+        * Property和Attribute的区别
+        * */
+        var inputEle = document.querySelector("input");
+        console.log(inputEle)
+        // 修改
+        inputEle.attributes.sdc.value = "pppp";
+        // 添加
+        inputEle.setAttribute("sdc", "ccc")
+        console.log(inputEle)
+        // 删除
+        inputEle.removeAttribute("ccc")
+        // 获取的另外一种方式
+        var attribute = inputEle.getAttribute("sdc");
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <button id="btn">我是一个按钮<span>Span</span></button>
+
+
+    <script>
+
+
+        /*
+        * Dom树
+        * */
+        console.log(document.firstElementChild)
+        console.log(document.firstChild1)
+
+
+        /*
+        * Node
+        *  Document、Element、Attribute、Text
+        * */
+        console.log(Node.DOCUMENT_NODE)
+        console.log(Node.ELEMENT_NODE)
+        console.log(Node.ATTRIBUTE_NODE)
+        console.log(Node.TEXT_NODE)
+
+
+        var btnEle = document.querySelector("#btn");
+        console.log(btnEle.nodeName, btnEle.nodeType, btnEle.nodeValue )
+
+
+
+        let btnElement = document.getElementById("btn");
+        console.log(btnElement.innerText)
+        console.log(btnElement.innerHTML)
+
+        btnElement.innerText = "<span>aaa</span>";
+
+
+    </script>
+</body>
+</html>

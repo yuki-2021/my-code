@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子节点</title>
+</head>
+<body>
+    <p id="center" style="color:red">
+        okok
+        <span>Span</span>
+        <span>Span</span>
+    </p>
+</body>
+</html>
+
+<script>
+    let pElement = document.getElementById("center");
+
+    console.log(pElement.childNodes.length) // 3
+    console.log(pElement.children.length) // 1
+
+
+    let childNodes = pElement.childNodes;
+    for (let childNode of childNodes) {
+        console.log(childNode.nodeName, childNode.nodeType, childNode.nodeValue)
+
+
+    }
+
+    console.log(pElement.firstChild.nodeValue)
+
+    let htmlSpanElement = document.querySelectorAll("span");
+    console.log(htmlSpanElement)
+</script>

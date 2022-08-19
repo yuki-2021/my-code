@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增删改查</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        ul li {
+            float: left;
+            background-color: #bfa;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv"></div>
+
+    <script !src="">
+        var myDivEle = document.querySelector("#myDiv");
+
+        /*
+        * 创建节点、追加到#myDivEle
+        * */
+        var spanEle = document.createElement("span");
+        var spanEleText = document.createTextNode("Are you ok");
+        spanEle.appendChild(spanEleText);
+        myDivEle.appendChild(spanEle);
+    </script>
+    <hr>
+
+    <ul id="myUl">
+        <li>北京</li>
+        <li>上海</li>
+        <li>南京</li>
+        <li>广州</li>
+    </ul>
+
+    <script !src="">
+        var ulEle = document.querySelector("#myUl");
+
+        var newLiEle = document.createElement("li");
+        newLiEle.innerText = "NewYork";
+
+        // ulEle.appendChild(newLiEle) // appendChild - 插入到最后
+        // ulEle.insertBefore(newLiEle, ulEle.firstElementChild);
+        ulEle.replaceChild(newLiEle, ulEle.firstElementChild)
+        ulEle.removeChild(ulEle.lastElementChild)
+
+
+    </script>
+
+</body>
+</html>
