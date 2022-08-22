@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebWorker相关代码</title>
+</head>
+<body>
+    <input type="text" id="param">
+    <button type="button" id="caBtn">运算</button>
+    <script !src="">
+        var inputEle = document.querySelector("#param");
+        var caBtn = document.querySelector("#caBtn");
+
+        // 使用new Worker()创建Worker
+        var worker = new Worker("worker.js");
+        // 设置回调
+        worker.onmessage = function (e) {
+            alert(e.data)
+            console.log("okok")
+        }
+        caBtn.onclick = function () {
+            console.log(inputEle.value)
+            worker.postMessage(inputEle.value) // 放入Work线程的messageQueue中
+        }
+    </script>
+</body>
+</html>
